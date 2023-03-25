@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="jumbotron text-center">
+    <h1>The FavMoVie</h1>
+    <p>We specialize in recommending the best movies</p>
+  </div>
+<div class="container">
+    <div class="row">
+        {% for i in movie_list %}
+        <div class="col-sm-4 mb-3 "><br>
+   <div class="card" style="width: 18rem;">
+
+  <img src="{{i.img.url}}" class="card-img-top" alt="..." width="100px" height="100px">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.desc}}</p>
+
+    <a href="{% url 'movieapp:detail' i.id %}" class="btn btn-primary">View</a>
+  </div>
+</div>
+</div>
+        {% endfor %}
+        <br>
+    </div>
+</div>
+
+{% endblock %}
